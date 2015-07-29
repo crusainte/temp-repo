@@ -1,0 +1,8 @@
+1) Enter the command: crontab -e
+
+2) Inside the editor, press I for insert mode
+3) Insert the following line:
+
+00 02 35 * * /home/Marketing Report/Scripts/task3_answer_a.sh
+
+4) Then type :wq to exit the editor and the cron job will be started

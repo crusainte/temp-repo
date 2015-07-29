@@ -1,0 +1,25 @@
+2. SQL
+a) What is the relation between Database, Schema, Tables, View in PostgreSQL / MySQL?
+
+Answer: A Database may contain 1 or more Schemas. A Schema may contain 1 or more Table. Lastly, a Table may contain 1 more View.
+
+b) What is the difference between a table and a view?
+
+Answer: A table contains the actual data identified by a primary key. A view is a stored query to run on a database to join and select data to be displayed. Difference 	between a table and a view would be that a view does not contain the actual data.
+
+c) Table reporting.items has 4 columns: Item_Code - Date - Visits - Orders
+Write a query to get total number of Visit over all Item_Codes for the day '2013-01-12'.
+
+Answer: SELECT SUM(Visits) as Total_Visit
+	FROM reportingitems
+	WHERE Date='2013-01-12';
+
+Write a query to get total number of visit over all Item_Codes for every year?.
+
+Answer: SELECT YEAR(Date) as year, SUM(Visits) as Total_Visit
+	FROM reporting.items
+	GROUP BY YEAR(Date);
+
+d) As a DBA: in PostgreSQL DB, write query(s) needed to give account "buying" access to all tables currently in schema "sales", and all future Tables created in schema "sales".
+
+Answer: ALTER DEFAULT PRIVILEGES IN SCHEMA sales GRANT SELECT ON TABLES TO buying;
